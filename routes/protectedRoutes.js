@@ -7,7 +7,7 @@ const ReviewController = require("../controllers/reviewController");
 
 const reviewController = new ReviewController();
 
-router.post("/protected/addReview", reviewController.addReview);
+router.post("/protected/:indexId/addReview", reviewController.addReview);
 
 
 
@@ -23,7 +23,7 @@ router.get('/protected', (req, res) => {
 
 router.post('/protected/swap', grabController.grabBook);
 
-const UploadController = require ("../controllers/uploadController");
+const UploadController = require("../controllers/uploadController");
 
 const uploadController = new UploadController();
 

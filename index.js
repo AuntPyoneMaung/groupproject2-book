@@ -27,8 +27,16 @@ app.get('/test', async (req, res) => {
   const genres = await Genres.findAll();
 
   // res.send(JSON.stringify([users, index, swap, reviews, genres]));
-  res.json([reviews]); //AuntPyone testing
+  res.json([reviews, index, users]); //AuntPyone testing
 });
+
+// dev delete
+app.delete("/testDel/:reviewId", async (req, res) => {
+  const index = Reviews.findByPk(req.params.reviewId);
+  await (await index).destroy();
+  res.status(200);
+  return res.send("Delete successful");
+})
 
 // Sign in routes (Register, Login) AND public user requests                  
 app.use(generalRoutes);
