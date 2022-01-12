@@ -11,10 +11,12 @@ class reviewController {
             return res.json({ message: "Incorrect request data" });
         }
 
+
         // if (req.body.rev === res.body.rev) {
         //     res.status(400);
         //     return res.json({ message: "entry invalid: duplicate" });
         // }
+
 
         // add in check for jwt
         // if (loginId !== req.body.userId) {
@@ -25,6 +27,7 @@ class reviewController {
         // };
 
         const result = await reviewService.addReview(req.body.userId, req.params.indexId, req.body.rev);
+
         res.status(result.status);
         return res.json({ data: result.data, message: result.message });
     };
