@@ -12,15 +12,15 @@ type varchar not null,
 
 create table "reviews" (
 review_id serial primary key,
-review varchar (300) not null,
+review varchar (max) not null,
 user_id int not null,
 index_id int not null,
 );
 
 create table "index" (
 index_id serial primary key,
-title varchar (50) unique not null,
-author varchar (50) not null,
+title varchar (100) unique not null,
+author varchar (100) not null,
 genre_id int,
 );
 
